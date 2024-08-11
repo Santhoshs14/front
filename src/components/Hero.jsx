@@ -11,7 +11,6 @@ const studentData = [
   { id: 2, name: "Jane Doe", department: "Mathematics", section: "B", year: 2 },
   { id: 3, name: "Alice Smith", department: "Physics", section: "A", year: 1 },
   { id: 4, name: "Bob Johnson", department: "Biology", section: "C", year: 4 },
-  // Add more students as needed
 ];
 
 const Hero = () => {
@@ -19,7 +18,6 @@ const Hero = () => {
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [reason, setReason] = useState("");
 
-  // Filter students based on search term
   const filteredStudents = studentData.filter((student) =>
     student.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -51,8 +49,6 @@ const Hero = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-4">
       <h1 className="text-2xl md:text-3xl font-bold mb-4">Student Dashboard</h1>
-
-      {/* Search Bar */}
       <div className="mb-4">
         <input
           type="text"
@@ -62,8 +58,6 @@ const Hero = () => {
           className="w-full p-2 border border-gray-300 rounded"
         />
       </div>
-
-      {/* Student Table */}
       <div className="mb-4">
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
@@ -95,8 +89,6 @@ const Hero = () => {
           </tbody>
         </table>
       </div>
-
-      {/* Selected Students Table */}
       {selectedStudents.length > 0 && (
         <div className="mb-4">
           <h2 className="text-xl font-semibold mb-2">Selected Students:</h2>
