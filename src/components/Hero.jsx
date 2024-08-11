@@ -3,14 +3,14 @@ import React, { useState } from "react";
 const studentData = [
   {
     id: 1,
-    name: "John Doe",
-    department: "Computer Science",
+    name: "zero",
+    department: "CSE",
     section: "A",
     year: 3,
   },
-  { id: 2, name: "Jane Doe", department: "Mathematics", section: "B", year: 2 },
-  { id: 3, name: "Alice Smith", department: "Physics", section: "A", year: 1 },
-  { id: 4, name: "Bob Johnson", department: "Biology", section: "C", year: 4 },
+  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
+  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
+  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
 ];
 
 const Hero = () => {
@@ -46,8 +46,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-4">
-      <h1 className="text-2xl md:text-3xl font-bold mb-4">Student Dashboard</h1>
+    <div className="p-6 max-w-5xl mx-auto bg-white rounded-xl shadow-md space-y-4">
+      <h1 className="text-2xl md:text-3xl font-bold mb-4 text-gray-700">
+        SEND ON DUTY REQUEST
+      </h1>
       <div className="mb-4">
         <input
           type="text"

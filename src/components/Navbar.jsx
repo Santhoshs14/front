@@ -1,12 +1,13 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <div
       className={`h-screen ${
@@ -31,44 +32,44 @@ const Navbar = () => {
       <nav className="flex-grow">
         <ul className="mt-4 space-y-2">
           <li>
-            <a
-              href="#send-request"
+            <Link
+              to="/send-request"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Send Request
               </span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#approved-students"
+            <Link
+              to="/approved-students"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Approved Students
               </span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#pending-students"
+            <Link
+              to="/pending-students"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Pending Students
               </span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#pending-students"
+            <Link
+              to="/rejected-students"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Rejected Students
               </span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
