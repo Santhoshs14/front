@@ -53,10 +53,10 @@ const Hero = () => {
       <div className="mb-4">
         <input
           type="text"
-          placeholder="Search students..."
+          placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100"
+          className="peer h-full w-full border-b-2 border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100"
         />
       </div>
       <div className="mb-4 max-h-[50vh] overflow-y-auto">
@@ -124,7 +124,7 @@ const Hero = () => {
           onChange={(e) => setReason(e.target.value)}
           placeholder="Enter the reason for the request..."
           className="w-full p-2 border border-gray-300 rounded"
-          rows="4"
+          rows="1"
         />
       </div>
       <button
