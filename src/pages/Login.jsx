@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 bg-[url('src/assets/bg.jpg')] bg-cover">
+    <div className="flex items-center justify-center min-h-screen bg-gray-300 bg-cover">
       <div className="w-full max-w-xl p-8 bg-gray-100 rounded-lg shadow-inner">
         <form>
           <div className="mb-4">
