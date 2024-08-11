@@ -125,8 +125,6 @@ const Hero = () => {
           </table>
         </div>
       )}
-
-      {/* Reason for Request */}
       <div className="mb-4">
         <textarea
           value={reason}
@@ -136,8 +134,6 @@ const Hero = () => {
           rows="4"
         />
       </div>
-
-      {/* Request Button */}
       <button
         onClick={handleRequest}
         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-200 w-full"
