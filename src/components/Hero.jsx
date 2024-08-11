@@ -11,16 +11,12 @@ const studentData = [
   { id: 2, name: "Jane Doe", department: "Mathematics", section: "B", year: 2 },
   { id: 3, name: "Alice Smith", department: "Physics", section: "A", year: 1 },
   { id: 4, name: "Bob Johnson", department: "Biology", section: "C", year: 4 },
-
-  // Add more students as needed
 ];
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [reason, setReason] = useState("");
-
-  // Filter students based on search term
   const filteredStudents = studentData.filter((student) =>
     student.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -52,8 +48,6 @@ const Hero = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-4">
       <h1 className="text-2xl md:text-3xl font-bold mb-4">Student Dashboard</h1>
-
-      {/* Search Bar */}
       <div className="mb-4">
         <input
           type="text"
@@ -63,8 +57,6 @@ const Hero = () => {
           className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100"
         />
       </div>
-
-      {/* Student Table */}
       <div className="mb-4 max-h-[50vh] overflow-y-auto">
         <table className="min-w-full bg-white border border-gray-300">
           <thead className="sticky top-0 bg-gray-200">
@@ -96,8 +88,6 @@ const Hero = () => {
           </tbody>
         </table>
       </div>
-
-      {/* Selected Students Table */}
       {selectedStudents.length > 0 && (
         <div className="mb-4 max-h-[50vh] overflow-y-auto">
           <h2 className="text-xl font-semibold mb-2">Selected Students:</h2>
@@ -126,8 +116,6 @@ const Hero = () => {
           </table>
         </div>
       )}
-
-      {/* Reason for Request */}
       <div className="mb-4">
         <textarea
           value={reason}
@@ -137,8 +125,6 @@ const Hero = () => {
           rows="4"
         />
       </div>
-
-      {/* Request Button */}
       <button
         onClick={handleRequest}
         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-200 w-full"
