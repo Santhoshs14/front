@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiLogOut, FiUser } from "react-icons/fi";
+import {
+  AiOutlineSend,
+  AiOutlineCheckCircle,
+  AiOutlineClockCircle,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -14,7 +20,7 @@ const Navbar = () => {
         isOpen ? "w-64" : "w-16"
       } bg-gray-700 text-white fixed flex flex-col transition-width duration-300 z-50`}
     >
-      <div className="flex items-center justify-between h-20 border-b border-gray-700 px-4">
+      <div className="flex items-center justify-between h-20 border-b border-gray-600 px-4">
         <h1
           className={`text-2xl font-semibold transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0"
@@ -34,8 +40,9 @@ const Navbar = () => {
           <li>
             <Link
               to="/send-request"
-              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
+              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-600"
             >
+              <AiOutlineSend size={24} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Send Request
               </span>
@@ -44,8 +51,9 @@ const Navbar = () => {
           <li>
             <Link
               to="/approved-students"
-              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
+              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-600"
             >
+              <AiOutlineCheckCircle size={24} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Approved Students
               </span>
@@ -54,8 +62,9 @@ const Navbar = () => {
           <li>
             <Link
               to="/pending-students"
-              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
+              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-600"
             >
+              <AiOutlineClockCircle size={24} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Pending Students
               </span>
@@ -64,8 +73,9 @@ const Navbar = () => {
           <li>
             <Link
               to="/rejected-students"
-              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
+              className="flex items-center py-2.5 px-4 rounded hover:bg-gray-600"
             >
+              <AiOutlineCloseCircle size={24} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Rejected Students
               </span>
@@ -73,6 +83,25 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+      <div className="mt-auto">
+        {isOpen ? (
+          <button
+            onClick={() => console.log("Logout")}
+            className="flex items-center py-2.5 px-4 rounded hover:bg-red-700 w-full"
+          >
+            <FiLogOut size={20} />
+            <span className="ml-2">Logout</span>
+          </button>
+        ) : (
+          <div className="flex items-center justify-center py-4">
+            <FiUser
+              size={24}
+              className="cursor-pointer"
+              onClick={() => console.log("Logout")}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

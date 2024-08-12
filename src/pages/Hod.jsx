@@ -3,28 +3,22 @@ import HodNavbar from "../components/HodNavbar";
 import ApprovedStudents from "../components/ApprovedStudents";
 import PendingStudents from "../components/PendingStudents";
 import RejectedStudents from "../components/RejectedStudents";
+import HodHero from "../components/HodHero";
+import Footer from "../components/Footer";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from "react-router-dom";
-import HodHero from "../components/HodHero";
-import logo from "../assets/logo.png"; // Adjust the path to your logo
 
 const Hod = () => {
   return (
     <Router>
-      <div className="relative flex">
-        <HodNavbar />
-        <div className="flex-grow p-6">
-          {/* Image positioned outside the container */}
-          <div className="absolute top-0 right-8 z-10">
-            <img src={logo} alt="Logo" className="h-[200px] w-[200px]" />
-          </div>
-          <div className="pt-40">
-            {" "}
-            {/* Adjust padding to move content down */}
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-grow flex">
+          <HodNavbar />
+          <div className="flex-grow p-6">
             <Routes>
               <Route path="/" element={<Navigate to="/approve-request" />} />
               <Route path="/approve-request" element={<HodHero />} />
@@ -34,6 +28,7 @@ const Hod = () => {
             </Routes>
           </div>
         </div>
+        <Footer />
       </div>
     </Router>
   );

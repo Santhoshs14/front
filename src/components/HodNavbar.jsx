@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import {
+  FiMenu,
+  FiX,
+  FiLogOut,
+  FiUser,
+  FiCheckCircle,
+  FiClock,
+  FiXCircle,
+  FiThumbsUp,
+} from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const HodNavbar = () => {
@@ -20,7 +29,7 @@ const HodNavbar = () => {
             isOpen ? "opacity-100" : "opacity-0"
           } overflow-hidden`}
         >
-          Dashboard
+          Hod/President
         </h1>
         <button
           onClick={toggleNavbar}
@@ -36,6 +45,7 @@ const HodNavbar = () => {
               to="/approve-request"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
+              <FiThumbsUp size={20} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Approve Request
               </span>
@@ -46,6 +56,7 @@ const HodNavbar = () => {
               to="/approved-students"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
+              <FiCheckCircle size={20} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Approved Students
               </span>
@@ -56,6 +67,7 @@ const HodNavbar = () => {
               to="/pending-students"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
+              <FiClock size={20} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Pending Students
               </span>
@@ -66,6 +78,7 @@ const HodNavbar = () => {
               to="/rejected-students"
               className="flex items-center py-2.5 px-4 rounded hover:bg-gray-700"
             >
+              <FiXCircle size={20} />
               <span className={`${isOpen ? "block" : "hidden"} ml-2`}>
                 Rejected Students
               </span>
@@ -73,6 +86,25 @@ const HodNavbar = () => {
           </li>
         </ul>
       </nav>
+      <div className="mt-auto">
+        {isOpen ? (
+          <button
+            onClick={() => console.log("Logout")}
+            className="flex items-center py-2.5 px-4 rounded hover:bg-red-700 w-full"
+          >
+            <FiLogOut size={20} />
+            <span className="ml-2">Logout</span>
+          </button>
+        ) : (
+          <div className="flex items-center justify-center py-4">
+            <FiUser
+              size={24}
+              className="cursor-pointer"
+              onClick={() => console.log("Logout")}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
