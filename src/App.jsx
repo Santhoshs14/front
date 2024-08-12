@@ -6,7 +6,7 @@ import Hod from "./pages/Hod";
 function App() {
   return (
     <>
-      <Login />
+      <Hod />
     </>
   );
 }
