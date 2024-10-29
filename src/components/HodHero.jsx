@@ -29,8 +29,6 @@ const requests = [
 
 const HodHero = () => {
   const [selectedRequests, setSelectedRequests] = useState([]);
-  const [fromTime, setFromTime] = useState("");
-  const [toTime, setToTime] = useState("");
 
   const handleSelectRequest = (id) => {
     setSelectedRequests((prevSelected) => {
@@ -44,7 +42,6 @@ const HodHero = () => {
 
   const handleApprove = () => {
     console.log(`Approved requests: ${selectedRequests.join(", ")}`);
-    console.log(`From Time: ${fromTime}, To Time: ${toTime}`);
   };
 
   const handleReject = () => {
@@ -119,31 +116,7 @@ const HodHero = () => {
               </tbody>
             </table>
           </div>
-          <div className="mt-4">
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                From Time
-              </label>
-              <input
-                type="time"
-                value={fromTime}
-                onChange={(e) => setFromTime(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                To Time
-              </label>
-              <input
-                type="time"
-                value={toTime}
-                onChange={(e) => setToTime(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-          </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-4">
             <button
               onClick={handleApprove}
               className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-200"

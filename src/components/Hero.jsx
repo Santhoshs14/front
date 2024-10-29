@@ -1,92 +1,20 @@
 import React, { useState } from "react";
 
 const studentData = [
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
+  { id: 1, name: "zero", department: "CSE", section: "A", year: 3 },
   { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
   { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
   { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
-  {
-    id: 1,
-    name: "zero",
-    department: "CSE",
-    section: "A",
-    year: 3,
-  },
-  { id: 2, name: "one", department: "CSE", section: "B", year: 2 },
-  { id: 3, name: "two", department: "CSE", section: "A", year: 1 },
-  { id: 4, name: "three", department: "CSE", section: "C", year: 4 },
+  // Add more student objects as needed
 ];
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [reason, setReason] = useState("");
+  const [fromTime, setFromTime] = useState("");
+  const [toTime, setToTime] = useState("");
+
   const filteredStudents = studentData.filter((student) =>
     student.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -106,11 +34,13 @@ const Hero = () => {
       alert("Please select at least one student.");
     } else if (!reason.trim()) {
       alert("Please provide a reason for the request.");
+    } else if (!fromTime || !toTime) {
+      alert("Please specify both 'From Time' and 'To Time' fields.");
     } else {
       alert(
         `Request sent for students: ${selectedStudents.join(
           ", "
-        )} with reason: ${reason}`
+        )} with reason: ${reason}, from ${fromTime} to ${toTime}`
       );
     }
   };
@@ -126,7 +56,7 @@ const Hero = () => {
           placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="peer h-full w-full border-b-2 border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100"
+          className="w-full border-b-2 border-blue-gray-200 bg-transparent pt-4 pb-1.5 text-sm font-normal text-blue-gray-700 focus:border-gray-500 outline-none"
         />
       </div>
       <div className="mb-4 max-h-[50vh] overflow-y-auto">
@@ -196,6 +126,30 @@ const Hero = () => {
           className="w-full p-2 border border-gray-300 rounded"
           rows="1"
         />
+      </div>
+      <div className="flex gap-4 mb-4">
+        <div className="flex-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            From Time
+          </label>
+          <input
+            type="time"
+            value={fromTime}
+            onChange={(e) => setFromTime(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            To Time
+          </label>
+          <input
+            type="time"
+            value={toTime}
+            onChange={(e) => setToTime(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
       </div>
       <button
         onClick={handleRequest}
